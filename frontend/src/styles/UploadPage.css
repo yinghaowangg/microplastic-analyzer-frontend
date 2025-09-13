@@ -1,0 +1,304 @@
+:root {
+    --bg-light: #EFFAF0;
+    --panel-bg: #FFFFFF;
+    --main-green: #4C8C4A;
+    --accent-green: #7CBF7C;
+    --text-dark: #333333;
+    --text-secondary: #666666;
+  }
+  
+  
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: var(--bg-light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow: hidden;
+  }
+  
+  /* ========== 居中包裹器 ========== */
+  .page-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;   /* 让内容贴顶部一些 */
+    padding-top: 5vh;          /* 整体往下留 5% 视口高 */
+  }
+  
+ 
+  .wrapper {
+    max-width: 600px;
+    width: 90%;
+    transform: scale(1.25);   /* 放大 25% */
+    margin: 0 auto;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px 0 8px;
+  }
+  header img.logo {
+    width: 120px;
+    margin-bottom: 6px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  header h1 {
+    font-size: 37px;
+    color: var(--main-green);
+    margin: 4px 0;
+  }
+  .tagline {
+    font-size: 14px;
+    color: var(--accent-green);
+    margin-bottom: 4px;
+  }
+  header p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 2px 0;
+  }
+  
+  
+  .container {
+    background: var(--panel-bg);
+    padding: 20px 16px;
+    max-width: 520px;
+    margin: 0 auto 12px;
+    border-radius: 14px;
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    position: relative;
+    z-index: 5;               /* 高于波浪 */
+  }
+  .container h2 {
+    font-size: 20px;
+    color: var(--accent-green);
+    margin-bottom: 20px;
+  }
+  
+  /* 上传控件 */
+  .upload-box { margin-bottom: 12px; }
+  .file-label {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--main-green);
+    background: var(--bg-light);
+    border: 2px dashed var(--accent-green);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .2s;
+  }
+  .file-label:hover { transform: scale(1.02); }
+  input[type="file"] { display: none; }
+  .file-name-display {
+    font-size: 14px;
+    color: var(--main-green);
+    margin: 8px 0 16px;
+    min-height: 18px;
+  }
+  
+  /* 分析按钮 */
+  .StartAnalysisButton {
+    font-size: 16px;
+    padding: 12px 32px;
+    background: var(--accent-green);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .StartAnalysisButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(76,140,74,.4);
+  }
+  .icon-right { font-size: 18px; }
+  
+  /* ========== 装饰 & 波浪 ========== */
+  .leaf-decor {
+    position: absolute;
+    font-size: 60px;
+    color: var(--accent-green);
+    opacity: .1;
+    animation: float 6s ease-in-out infinite;
+    z-index: 2;
+  }
+  .leaf-decor.left  { top: 8%;  left: -30px; }
+  .leaf-decor.right { top: 90%; right: -30px; transform: scaleX(-1); }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  
+  .wave_container {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 260px;            /* 更高的波浪背景 */
+    overflow: hidden;
+    z-index: 0;               /* 在卡片后面 */
+  }
+  .wave {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 200%;
+    border-radius: 50%/100% 100% 0 0;
+    animation: waveMove 25s ease-in-out infinite;
+  }
+  .wave:nth-child(1) {
+    height: 90px;
+    background: rgba(30, 100, 25, .55);  /* 不透明度降低 */
+  }
+  .wave:nth-child(2) {
+    height: 160px;
+    bottom: -20px;
+    background: rgba(46, 125, 50, .45);
+    animation-duration: 30s;
+  }
+  .wave:nth-child(3) {
+    height: 230px;
+    bottom: -40px;
+    background: rgba(46, 125, 50, .35);
+    animation-duration: 35s;
+  }
+  @keyframes waveMove {
+    0% { transform: translateX(0); }
+    50%{ transform: translateX(-25%); }
+    100%{ transform: translateX(-50%); }
+  }
+  
+ 
+  @keyframes fadeIn {
+    from { opacity:0; transform:translateY(-8px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+ 
+.page-wrapper {
+    padding-top: 8vh;       
+  }
+  
+ 
+  header img.logo {
+    width: 100px;             
+    margin-bottom: 12px;     
+  }
+  header {
+    padding: 12px 0 8px;       
+  }
+  
+  .container {
+    max-width: 460px;          
+    padding: 18px 16px;       
+  }
+  .sci-fi-bg {
+    background: radial-gradient(circle at center, #effaf0 0%, #e0f7e9 100%);
+    background-image: url('/image/stars-bg.png'); /* 可用星空或网格动画 */
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .glow-border {
+    border: 2px solid #4caf50;
+    box-shadow: 0 0 12px #4caf50;
+    border-radius: 12px;
+  }
+  
+  .futuristic-text {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 6px #4caf50;
+  }
+  
+  .glass-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(124, 191, 124, 0.3);
+  }
+  
+  .neon-button {
+    background: #4caf50;
+    color: white;
+    box-shadow: 0 0 8px #4caf50, 0 0 20px #4caf50;
+  }
+  .glow-text {
+    color: #4caf50;
+    text-shadow: 0 0 5px #4caf50, 0 0 10px #66ff66;
+    animation: glowPulse 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 5px #4caf50; }
+    50% { text-shadow: 0 0 20px #66ff66; }
+  }
+  .wrapper {
+    transform: scale(1.7);
+  }
+  
+  header img.logo {
+    width: 158px;
+  }
+  
+  .container {
+    max-width: 580px;
+  }
+  .leaf-icon-decor {
+    position: absolute;
+    width: 80px;
+    opacity: 0.2;
+    top: 10%;
+    right: 5%;
+    animation: float 8s ease-in-out infinite;
+    opacity: 0.9; /* 由 0.3 提高亮度 */
+  animation: leafFloat 6s linear infinite; /* 加快动画 */
+  }
+  .preview-thumb {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 18px;
+  }
+  body, #root {
+    height: auto;
+    overflow-y: auto;
+  }
+  
+  .page-wrapper {
+    padding-bottom: 220px;
+  }
+  
+  .wave_container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 0;
+  }
+  
+  .preview-thumb {
+    width: 90%;
+    max-width: 350px;
+    max-height: 260px;
+    display: block;
+    margin: 10px auto 18px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .05);
+  }
+  
+  .container {
+    max-width: 520px;
+    margin: 0 auto 24px;
+    overflow: hidden;
+    padding-bottom: 24px;
+  }

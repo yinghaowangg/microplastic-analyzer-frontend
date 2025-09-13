@@ -1,0 +1,38 @@
+/* src/styles/App.css */
+
+/* —— 全局重置，确保根节点撑满全屏 —— */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* —— 根容器 flex 居中，淡绿色背景 —— */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EFFAF0;  /* 整页背景色 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+}
+
+/* —— 覆盖掉旧的 max-width/margin/padding —— */
+#root {
+  width: 100%;
+}
+
+/* —— 如果你仍然想让 logo 有淡入动画 —— */
+.logo {
+  width: 120px;          /* 你的校徽宽度 */
+  margin-bottom: 8px;    /* 和标题之间留点空 */
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 淡入关键帧 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* —— 其余 Vite 默认的 .logo.react / spin 之类可以全部删掉 —— */
